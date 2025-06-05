@@ -71,47 +71,11 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
-      {/* Dark atmospheric overlay */}
-      <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
-
-      {/* Subtle grain texture */}
-      <div
-        className="absolute inset-0 opacity-30 pointer-events-none mix-blend-overlay"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E")`,
-        }}
-      ></div>
-
-      <div className="container mx-auto px-4 py-8 relative z-10">
-        {!gameStarted && !showGallery && !showTribute && !showStories && (
-          <WelcomeScreen
-            onStartGame={handleStartGame}
-            onShowGallery={handleShowGallery}
-            onShowTribute={handleShowTribute}
-            onShowStories={handleShowStories}
-          />
-        )}
-
-        {showGallery && (
-          <AlbumGallery
-            onBackToMenu={handleBackToMenu}
-            onStartGame={handleStartGame}
-            playlist={playlist}
-            setCurrentTrack={setCurrentTrack}
-            setIsPlaying={setIsPlaying}
-          />
-        )}
-
-        {showTribute && <LiamTribute onBackToMenu={handleBackToMenu} />}
-
-        {showStories && <FanStories onBackToMenu={handleBackToMenu} />}
-
-        {gameStarted && <AiEnhancedTrivia onRestartGame={handleBackToMenu} />}
-
-        {/* One Direction Music Player */}
-        <OneDirectionPlayer isVisible={!showTribute} />
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm">
+        <h1 className="text-4xl font-bold text-center mb-8">One Direction Fan Game</h1>
+        <p className="text-center mb-4">Welcome to the ultimate One Direction fan experience!</p>
       </div>
-    </div>
+    </main>
   )
 }

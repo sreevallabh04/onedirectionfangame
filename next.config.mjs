@@ -10,6 +10,8 @@ const nextConfig = {
       'm.media-amazon.com', // Amazon Music images
       'images.unsplash.com', // Unsplash images
       'i.imgur.com', // Imgur images
+      'i.ytimg.com',
+      'yt3.ggpht.com',
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],

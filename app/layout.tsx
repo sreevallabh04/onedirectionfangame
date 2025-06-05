@@ -1,16 +1,47 @@
-import './globals.css'
-import { Inter } from "next/font/google"
+import type { Metadata } from "next"
+import { Inter, Caveat } from "next/font/google"
+import "./globals.css"
 import ClientLayout from './client-layout'
-import { metadata } from './metadata'
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: '--font-inter',
+})
 
-export { metadata }
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: '--font-handwriting',
+})
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+  title: "One Direction Fan Game",
+  description: "A tribute to One Direction and their fans",
+  keywords: ["One Direction", "Fan Game", "Music", "Tribute"],
+  authors: [{ name: "One Direction Fan" }],
+  openGraph: {
+    title: "One Direction Fan Game",
+    description: "A tribute to One Direction and their fans",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "One Direction Fan Game",
+    description: "A tribute to One Direction and their fans",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={`${inter.variable} ${caveat.variable}`}>
+      <body className="min-h-screen bg-black text-white">
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
