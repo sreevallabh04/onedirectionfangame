@@ -62,13 +62,13 @@ const nextConfig = {
 
   // Build optimizations
   eslint: {
-    ignoreDuringBuilds: true, // Temporarily ignore ESLint during builds
+    ignoreDuringBuilds: true,
   },
   typescript: {
-    ignoreBuildErrors: true, // Temporarily ignore TypeScript errors during builds
+    ignoreBuildErrors: true,
   },
 
-  // Output configuration
+  // Output configuration for Vercel
   output: 'standalone',
   
   // Experimental features
